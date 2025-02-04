@@ -10,7 +10,7 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4.2.2
       - name: Fetch Metrics
-        uses: RickardHF/fetch-github-copilot-metrics@main
+        uses: falck-studios/github-copilot-metrics@main
         with:
           token: ${{ secrets.TEST_TOKEN }}
           org: ${{ secrets.TEST_ORG }}
