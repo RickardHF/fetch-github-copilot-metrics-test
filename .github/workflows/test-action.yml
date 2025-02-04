@@ -1,0 +1,18 @@
+name: Run the Action as a test
+
+on:
+  workflow_dispatch:
+
+jobs:
+  fetch-metrics-as-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4.2.2
+      - name: Fetch Metrics
+        uses: RickardHF/fetch-github-copilot-metrics@main
+        with:
+          token: ${{ secrets.TEST_TOKEN }}
+          org: ${{ secrets.TEST_ORG }}
+      - name: Check if file is present
+        run: ls copilot-metrics.json
